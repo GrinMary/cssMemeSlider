@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    background-color: #fff;
 }
 body {
     display: flex;
@@ -7,7 +8,6 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #fff;
 }
 .slider {
     display: flex;
@@ -17,8 +17,7 @@ body {
 }
 .slider-content {
     overflow: hidden;
-    border-radius: 1rem;
-    background: #222;
+    font-size: 26px;
 }
 .slider-items {
     display: flex;
@@ -50,45 +49,39 @@ body {
     flex-wrap: wrap;
     padding: 1rem;
 }
-.slider-controls input {
+.slider input {
   display: none;
 }
 .slider-controls label {
-  width: 1rem;
-  height: 1rem;
-  border: 0.125rem solid #fff;
-  border-radius: 50%;
-  cursor: pointer;
-  display: inline-block;
-  background-color: black;
+    width: 1rem;
+    height: 1rem;
+    border: 0.125rem solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    background-color: black;
 }
 .slider-controls input:checked + label {
   background: grey;
 }
-
 .slider-controls label:hover {
   transform: scale(1.1);
 }
-
 .slider-controls label:active {
   transform: scale(0.95);
 }
-
 #slide-1:checked ~ .slider-content .slider-items {
   transform: translateX(0%);
 }
-
 #slide-2:checked ~ .slider-content .slider-items {
   transform: translateX(-25%);
 }
 #slide-3:checked ~ .slider-content .slider-items {
   transform: translateX(-50%);
 }
-
 #slide-4:checked ~ .slider-content .slider-items {
   transform: translateX(-75%);
 }
-
 #slide-1:checked ~ .slider-content .slider-item:nth-child(1) .slider-text,
 #slide-2:checked ~ .slider-content .slider-item:nth-child(2) .slider-text,
 #slide-3:checked ~ .slider-content .slider-item:nth-child(3) .slider-text,
@@ -96,11 +89,10 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-
-#slide-1:checked ~ .slider-controls .slider-text[for="slide-1"],
-#slide-2:checked ~ .slider-controls .slider-text[for="slide-2"],
-#slide-3:checked ~ .slider-controls .slider-text[for="slide-3"],
-#slide-4:checked ~ .slider-controls .slider-text[for="slide-4"] {
-  background-color: #fff;
+#slide-1:checked ~ .slider-controls label[for="slide-1"],
+#slide-2:checked ~ .slider-controls label[for="slide-2"],
+#slide-3:checked ~ .slider-controls label[for="slide-3"],
+#slide-4:checked ~ .slider-controls label[for="slide-4"] {
+  background-color: grey;
   box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.15);
 }
