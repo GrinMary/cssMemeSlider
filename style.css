@@ -93,6 +93,7 @@ body {
 #slide-2:checked ~ .slider-controls label[for="slide-2"],
 #slide-3:checked ~ .slider-controls label[for="slide-3"],
 #slide-4:checked ~ .slider-controls label[for="slide-4"] {
-  background-color: grey;
+  background-color: initial;
+  border: 1px solid black;
   box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.15);
 }
