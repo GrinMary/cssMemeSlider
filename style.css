@@ -7,12 +7,15 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    min-width: 320px;
+    width: 100%;
     margin: 0;
+    background-color: #fff;
 }
 .slider {
     display: flex;
     flex-direction: column;
-    width: min(100%, 60rem);
+    width: min(100%, 54rem);
     padding: 2rem 1rem;
 }
 .slider-content {
@@ -40,6 +43,8 @@ body {
 }
 .slider-img img {
     width: 100%;
+    max-width: 50rem;
+    max-height: 30rem;
 }
 .slider-controls {
     display: flex;
@@ -47,7 +52,6 @@ body {
     align-items: center;
     gap: 0.75rem;
     flex-wrap: wrap;
-    padding: 1rem;
 }
 .slider input {
   display: none;
@@ -61,7 +65,17 @@ body {
     display: inline-block;
     background-color: black;
 }
-.slider-controls input:checked + label {
+.slider-text {
+  display: none;
+  transition: 0.5s;
+  font-size: 26px;
+}
+.slider-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.slider-controls input:checked label {
   background: grey;
 }
 .slider-controls label:hover {
@@ -82,18 +96,22 @@ body {
 #slide-4:checked ~ .slider-content .slider-items {
   transform: translateX(-75%);
 }
-#slide-1:checked ~ .slider-content .slider-item:nth-child(1) .slider-text,
-#slide-2:checked ~ .slider-content .slider-item:nth-child(2) .slider-text,
-#slide-3:checked ~ .slider-content .slider-item:nth-child(3) .slider-text,
-#slide-4:checked ~ .slider-content .slider-item:nth-child(4) .slider-text {
-  opacity: 1;
-  transform: translateY(0);
+#slide-1:checked ~ .slider-bottom .slider-content-text .slider-text:nth-child(1),
+#slide-2:checked ~ .slider-bottom .slider-content-text .slider-text:nth-child(2),
+#slide-3:checked ~ .slider-bottom .slider-content-text .slider-text:nth-child(3),
+#slide-4:checked ~ .slider-bottom .slider-content-text .slider-text:nth-child(4) {
+  display: inline-block;
 }
-#slide-1:checked ~ .slider-controls label[for="slide-1"],
-#slide-2:checked ~ .slider-controls label[for="slide-2"],
-#slide-3:checked ~ .slider-controls label[for="slide-3"],
-#slide-4:checked ~ .slider-controls label[for="slide-4"] {
+#slide-1:checked ~ .slider-bottom .slider-controls label[for="slide-1"],
+#slide-2:checked ~ .slider-bottom .slider-controls label[for="slide-2"],
+#slide-3:checked ~ .slider-bottom .slider-controls label[for="slide-3"],
+#slide-4:checked ~ .slider-bottom .slider-controls label[for="slide-4"] {
   background-color: initial;
   border: 1px solid black;
   box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.15);
+}
+@media (max-width: 500px) {
+  .slider-bottom {
+    flex-direction: column;
+  }
 }
